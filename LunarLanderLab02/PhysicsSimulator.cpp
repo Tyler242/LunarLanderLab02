@@ -170,8 +170,21 @@ double prompt(string message) {
     return response;
 }
 
-
-
+class LunarModule
+{
+    double x = 0;
+    double y;
+    double v;
+    double dx;
+    double dy;
+    double ddx;
+    double ddy;
+    double ddxThrust;
+    double ddyThrust;
+    double aDegrees;
+    double aRadians;
+    double accelerationThrust;
+};
 /****************************************************************
  * MAIN
  ****************************************************************/
@@ -181,9 +194,9 @@ int main()
     double dx = prompt("What is your horizontal velocity (m/s)? ");
     double dy = prompt("What is your vertical velocity (m/s)? ");
     double y = prompt("What is your altitude (m)? ");
-    double x = prompt("What is your position (m)? ");
+    double x = 0;
     double aDegrees = prompt("What is the angle of the LM where 0 is up (degrees)? ");
-    double t = prompt("What is the time interval (s)? ");
+    double t = 1;
     double aRadians;            // Angle in radians
     double accelerationThrust;  // Acceleration due to thrust 
     double ddxThrust;           // Horizontal acceleration due to thrust
