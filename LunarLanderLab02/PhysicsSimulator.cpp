@@ -1,14 +1,18 @@
 /*************************************************************
  * 1. Name:
- *      -your name-
+ *      Caleb Rasmussen & Tyler Shellman
  * 2. Assignment Name:
  *      Lab 02: Apollo 11
  * 3. Assignment Description:
  *      Simulate the Apollo 11 landing
  * 4. What was the hardest part? Be as specific as possible.
- *      -a paragraph or two about how the assignment went for you-
+ *      The hardest part of this assessment was knowing if we
+ *      properly implement the solution since the example test
+ *      case was wrong. All our numbers seem to be moving the in
+ *      right directions and are similar to last time, so
+ *      hopefully, it all works correctly.
  * 5. How long did it take for you to complete the assignment?
- *      -total time in hours: reading the assignment, submitting, and writing code-
+ *      2.5 hours each
  *****************************************************************/
 
 #include <iostream>
@@ -48,19 +52,21 @@ int main()
     double aDegrees = prompt("What is the angle of the LM where 0 is up (degrees)? ");
     double t = 1;
 
+    // Create LunarModule object with user inputs
     LunarModule lunarModule = LunarModule(dx, dy, y, aDegrees);
 
-    //
-    cout << "For the next 5 seconds with the main engine on, the position of the lander is: \n";
+
+    // Loops 10, twice for each time
+    cout << "\nFor the next 5 seconds with the main engine on, the position of the lander is: \n\n";
 
     while (t <= 10) {
 
        // Update degrees again
        if (t == 6) {
-           aDegrees = prompt("What is the new angle of the LM where 0 is up (degrees)? ");
+           aDegrees = prompt("\nWhat is the new angle of the LM where 0 is up (degrees)? ");
            lunarModule.update_degrees(aDegrees);
 
-           cout << "For the next 5 seconds with the main engine on, the position of the lander is: \n";
+           cout << "\nFor the next 5 seconds with the main engine on, the position of the lander is: \n\n";
        }
         
         lunarModule.update_position(t);
@@ -68,10 +74,13 @@ int main()
         // Output
         cout.setf(ios::fixed | ios::showpoint);
         cout.precision(2);
-        cout << int(t) << "s - x,y: (" << lunarModule.get_x() << ", " << lunarModule.get_y() 
-            << ")m dx,dy: (" << lunarModule.get_dx() << ", " << lunarModule.get_dy() << ")m/s speed:"
-            << lunarModule.get_v() << "m/s angle:" << lunarModule.get_aDegrees() << "deg" << endl;
-        t++;
+        cout << int(t) 
+            << "s - x,y:(" << lunarModule.getX() << ", " << lunarModule.getY() 
+            << ")m  dx,dy:(" << lunarModule.getDx() << ", " << lunarModule.getDy() 
+            << ")m/s  speed:" << lunarModule.getV() 
+            << "m/s  angle:" << lunarModule.getADegrees() << "deg" << endl;
+
+        t++; // increase time
     }
 
     return 0;

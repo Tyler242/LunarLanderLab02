@@ -1,11 +1,32 @@
+/*************************************************************
+ * Source File:
+ *    LunarModule.cpp
+ * Author:
+ *    Caleb Rasmussen & Tyler Shellman
+ * Summary:
+ *    This file contains the definitions for the LunarModule 
+ *	  methods. 
+ **************************************************************/
+
 #include "LunarModule.h"
 
-//
+/**************************************************
+ * LUNAR MODULE DEFUALT CONSTRUCTORS
+ * Constructor that takes user inputs to init object
+ * and set the member variables.
+ * INPUT
+ *      dx 
+ *		dy
+ *		y
+ *		aDegrees
+ * OUTPUT
+ *      None
+ ***************************************************/
 LunarModule::LunarModule(double dx, double dy, double y, double aDegrees) {
-	this->dx;
-	this->dy;
-	this->y;
-	this->aDegrees;
+	this->dx = dx;
+	this->dy = dy;
+	this->y = y;
+	this->aDegrees = aDegrees;
 
 	// compute acceleration
 	accelerationThrust = computeAcceleration(THRUST, WEIGHT);
@@ -13,9 +34,30 @@ LunarModule::LunarModule(double dx, double dy, double y, double aDegrees) {
 	update_degrees(aDegrees);
 }
 
-//
+/**************************************************
+ * LUNAR MODULE COPY CONSTRUCTOR
+ * Copys current object to a new object passed by
+ * reference
+ * INPUT
+ *      rhs	: new object to be copied to 
+ * OUTPUT
+ *      None
+ ***************************************************/
+LunarModule::LunarModule(const LunarModule& rhs) {
+	*this = rhs;
+}
+
+/**************************************************
+ * UPDATE DEGREES
+ * Update degrees from passed value, computes new
+ * acceleration and updates related mmember variables
+ * INPUT
+ *		aDegrees
+ * OUTPUT
+ *      None
+ ***************************************************/
 void LunarModule::update_degrees(double aDegrees) {
-	this->aDegrees; // update degrees
+	this->aDegrees = aDegrees; // update degrees
 
 	// compute acceleration components
 	aRadians = radiansFromDegrees(aDegrees);
@@ -27,7 +69,15 @@ void LunarModule::update_degrees(double aDegrees) {
 	ddy = ddyThrust + GRAVITY;
 }
 
-//
+/**************************************************
+ * UPDATE POSITION
+ * Updates lunar module position by computing 
+ * velocity and distance based on passed time. 
+ * INPUT
+ *		t : time, in seconds
+ * OUTPUT
+ *      None
+ ***************************************************/
 void LunarModule::update_position(double t) {
 	// compute velocity components
 	// We use ddxThrust here because gravity does not have an effect on 
@@ -46,33 +96,75 @@ void LunarModule::update_position(double t) {
 
 }
 
-// x Getter
-double LunarModule::get_x() const {
+/***************************************************
+ * GET X
+ * X Getter
+ * INPUT
+ *     N/A
+ * OUTPUT
+ *     x 
+ **************************************************/
+double LunarModule::getX() const {
 	return x;
 }
 
-// y Getter
-double LunarModule::get_y() const {
+/***************************************************
+ * GET X
+ * x Getter
+ * INPUT
+ *     N/A
+ * OUTPUT
+ *     x
+ **************************************************/
+double LunarModule::getY() const {
 	return y;
 }
 
-// dx Getter
-double LunarModule::get_dx() const {
+/***************************************************
+ * GET DX
+ * dx Getter
+ * INPUT
+ *     N/A
+ * OUTPUT
+ *     dx
+ **************************************************/
+double LunarModule::getDx() const {
 	return dx;
 }
 
-// dy Getter
-double LunarModule::get_dy() const {
+/***************************************************
+ * GET DY
+ * dy Getter
+ * INPUT
+ *     N/A
+ * OUTPUT
+ *     dy
+ **************************************************/
+double LunarModule::getDy() const {
 	return dy;
 }
 
-// v Getter
-double LunarModule::get_v() const {
+/***************************************************
+ * GET V
+ * V Getter
+ * INPUT
+ *     N/A
+ * OUTPUT
+ *     V
+ **************************************************/
+double LunarModule::getV() const {
 	return v;
 }
 
-// aDegees Getter
-double LunarModule::get_aDegrees() const {
+/***************************************************
+ * GET ADEGEES
+ * aDegrees Getter
+ * INPUT
+ *     N/A
+ * OUTPUT
+ *     x
+ **************************************************/
+double LunarModule::getADegrees() const {
 	return aDegrees;
 }
 
