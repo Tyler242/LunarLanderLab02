@@ -19,7 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LunarModule.cpp" />
     <ClCompile Include="PhysicsSimulator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LunarModule.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
